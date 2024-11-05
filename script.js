@@ -160,3 +160,64 @@ function game() {
 
 
 game();
+
+
+
+
+
+// პირველი მაგალითის ამოხსნა
+const cal =(...number) => {
+    if(number.length <=2){
+        return "რიცხვების რაოდენობა უნდა იყოს 2-ზე მეტი"
+    }
+
+    const sumOfnumber= number[0] + number[1];
+    const numTimes = number[2] * number[3];
+
+    return [sumOfnumber,numTimes]
+}
+console.log(cal(2,3,4,5));
+
+// მეორე მაგალითის ამოხსნა
+  const user5 = {
+   banks : [
+{ Address :{city: "Los Angeles"}},
+{ Address :{city:"Califronia"}},
+{ Address :{city:"New-York"}},
+{ Address :{}}
+   ]
+}
+console.log(user5.banks[2].Address.city);
+console.log(user5.banks [{}, {}, {}]);
+
+
+// მესამე მაგალითი
+
+const person4 = {
+    firstname: "Toko",
+    Lastname: "Khurtsidze",
+    From: "Georgia",
+    Address: {
+        city:"Tbilisi"
+    }
+
+};
+
+const person5 = {
+    ...person4,
+    Address: {
+        ...person4.Address
+    }
+};
+person5.firstname = "Giorgi";
+person5.Address.city="Rustavi";
+
+console.log(person4.firstname, person4.Lastname,person4.From,person4.Address.city);
+console.log(person5.firstname, person5.Lastname,person5.From,person5.Address.city);
+
+
+
+
+
+
+
