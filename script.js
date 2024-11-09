@@ -221,3 +221,40 @@ console.log(person5.firstname, person5.Lastname,person5.From,person5.Address.cit
 
 
 
+const types = (string, valueToReplace,valueToReplaceWith) => {
+    let index= string.indexOf(valueToReplace)
+    let newstring=string
+    .substr(0,index)
+    + valueToReplaceWith
+    + string.substr(index+valueToReplace.lenght)
+    return newstring
+
+}
+console.log(types("i prefer black to blue "," black "," white "))
+
+
+const upper = (sentence) => {
+    const words = sentence.split(" ");
+    const upperWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return upperWords.join(" ");
+};
+
+console.log(upper("hello world"));
+
+
+const arr = [
+    { name: "Lasha", age: 30 },
+    { name: "Saba", age: 20 },
+    { name: "Ana", age: 25 }
+];
+
+const sortByAge = (users) => {
+    return users.slice().sort((a, b) => a.age - b.age);
+};
+
+console.log(sortByAge(arr));
+ 
+ 
+
+    
+
