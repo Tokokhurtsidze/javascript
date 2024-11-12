@@ -257,4 +257,124 @@ console.log(sortByAge(arr));
  
 
     
+// first
+const longtext = document.getElementById('text');
+const button = document.getElementById('btn');
 
+button.addEventListener("click", () => {
+    longtext.style.display = 'none';
+});
+
+// second
+const div = document.createElement('div');
+div.setAttribute('id', 'div1');
+
+const h2 = document.createElement('h2');
+h2.textContent = 'Gandalf'; 
+
+const href = document.createElement('a');
+href.setAttribute('href', '#');
+href.textContent = 'Go to profile'; 
+
+div.appendChild(h2);
+div.appendChild(href);
+
+document.body.appendChild(div);
+// third
+// let score = 0;
+
+// const showQuestion = (questions, answers, correctAnswer) => {
+//     const questionl = document.getElementById("question");
+//     questionl.textContent = questions;
+
+//     const answer = document.querySelectorAll(".answer"); 
+//     answer.forEach((element, index) => {
+//         element.textContent = answers[index];
+//         element.classList.remove('correct', 'incorrect');
+//     });
+// }
+
+// const checked = (SelectedElement, correctAnswer) => {
+//     const answer = document.querySelectorAll(".answer");
+//     const Selectedanswerindex = Array.from(answer).indexOf(SelectedElement);
+
+//     if (Selectedanswerindex === correctAnswer) {  
+//         SelectedElement.classList.add('correct');
+//         score++;
+//     } else {
+//         SelectedElement.classList.add('incorrect');
+//     }
+//     updateScore()
+// }
+
+// const updateScore = () => {
+//     const scoreElement= document.getElementById('score')
+//     scoreElement.textContent='score: ${score}'
+// }
+// const question="what is the capital of Georgia"
+// const answers=['Tbilisi','Paris','Rome']
+// const correctAnswer=0
+// showQuestion(question,answers,correctAnswer)
+
+let score = 0;
+let currentQuestionIndex = 0;
+
+const questions = [
+    {
+        question: "What is the capital of Georgia?",
+        answers: ["Tbilisi", "Paris", "Rome", "Berlin"],
+        correctAnswer: 0
+    },
+    {
+        question: "What is the capital of France?",
+        answers: ["London", "Berlin", "Paris", "Madrid"],
+        correctAnswer: 2
+    },
+    {
+        question: "What is the capital of Italy?",
+        answers: ["Venice", "Rome", "Naples", "Florence"],
+        correctAnswer: 1
+    }
+];
+
+const showQuestion = () => {
+    const questionl = document.getElementById("question");
+    const currentQuestion = questions[currentQuestionIndex];
+    questionl.textContent = currentQuestion.question;
+
+    const answerElements = document.querySelectorAll(".answer");
+    answerElements.forEach((element, index) => {
+        element.textContent = currentQuestion.answers[index];
+        element.classList.remove('correct', 'incorrect');
+    });
+};
+
+const check = (selectedElement) => {
+    const answerElements = document.querySelectorAll(".answer");
+    const selectedAnswerIndex = Array.from(answerElements).indexOf(selectedElement);
+
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedAnswerIndex === currentQuestion.correctAnswer) {
+        selectedElement.classList.add('correct');
+        score++;
+    } else {
+        selectedElement.classList.add('incorrect');
+    }
+
+    updateScore();
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        setTimeout(showQuestion, 1000);
+    } else {
+        alert("Quiz finished! Final score: " + score);
+    }
+};
+
+const updateScore = () => {
+    const scoreElement = document.getElementById('score');
+    scoreElement.textContent = `Score: ${score}`;
+};
+
+
+showQuestion();
