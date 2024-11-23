@@ -596,37 +596,509 @@
 // console.log(calculatesum(2,2,3,4,5,6,7,));
 
 
-function mySetTimeout(delay) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, delay);
-    });
-}
-async function makeToy(timeToMake) {
-    console.log("Toy production started...");
-    await mySetTimeout(timeToMake);
-    console.log("Toy production completed!");
-}
+// // function mySetTimeout(delay) {
+// //     return new Promise((resolve) => {
+// //         setTimeout(resolve, delay);
+// //     });
+// // }
+// // async function makeToy(timeToMake) {
+// //     console.log("Toy production started...");
+// //     await mySetTimeout(timeToMake);
+// //     console.log("Toy production completed!");
+// // }
 
-async function deliverToys(timeToDeliver) {
-    console.log("Toy delivery started...");
-    await mySetTimeout(timeToDeliver);
-    console.log("Toy delivery completed!");
-}
+// // async function deliverToys(timeToDeliver) {
+// //     console.log("Toy delivery started...");
+// //     await mySetTimeout(timeToDeliver);
+// //     console.log("Toy delivery completed!");
+// // }
 
-async function toyShopWorkflow(timeToMake, timeToDeliver) {
-    console.log("Welcome to the Toy Shop!");
-
-    
-    await makeToy(timeToMake);
+// // async function toyShopWorkflow(timeToMake, timeToDeliver) {
+// //     console.log("Welcome to the Toy Shop!");
 
     
-    await deliverToys(timeToDeliver);
+// //     await makeToy(timeToMake);
 
-    console.log("All tasks are done!");
+    
+// //     await deliverToys(timeToDeliver);
+
+// //     console.log("All tasks are done!");
+// // }
+
+
+// // const timeToMake = 3000; 
+// // const timeToDeliver = 2000; 
+
+// // toyShopWorkflow(timeToMake, timeToDeliver);
+
+
+// const percent = (data)=>{
+//     let sum=0
+//     for(const num of data){
+//         sum +=num
+//     }
+//     const result = data.map((el)=>((el/sum)*100).toFixed(3))
+//     return result
+// }
+// console.log(percent([1,4,5]));
+
+
+// const perc= (numb)=>{
+//     sum=0
+//     for(num of numb){
+//         sum+=num
+//     }
+//     const results= numb.map((el)=>((el/sum)*100).toFixed(2))
+//     return results
+// }
+
+// console.log(perc([2,3,4]));
+
+
+// const c=[1,2,3,4]
+// // ბოლოში ჩაამატა 5
+// c.push(5)
+// // ბოლოდან ამოიღო 
+// c.pop()
+// // პირველ ელემენტს შლის მასივიდან
+// c.shift()
+// // ამატებს პირველ ელემენტს
+// c.unshift(0)
+// // ამოჭრის ელემენტებს საწყისსა და საბოლოო ინდექსებს შორის
+// // console.log(c.slice(1,2));
+// // ამოჭრის საწყისიდან ნ რაოდენობამდე მითითებულ ინდექსებს
+// console.log(c.splice(2,3));
+
+
+
+// const arr =([start,end],arr2)=>{
+//     // const result=[]
+//     // result.push(arr1[0])
+//     // for(const num of arr2){
+//     //     result.push(num)
+//     // }
+//     // result.push(arr1[1]) 
+
+//     // return result
+// return [start,...arr2,end]
+// }
+// console.log(arr([1,2],[5,6,7,8]));
+
+
+// const saxeli ='toko'
+// const s="da da"
+// // ადიდებს ასოებს
+// console.log(saxeli.toUpperCase());
+// // იძებნება თუ არა სტრინგი,თუ არ მოიძებნა აბრუნებს -1 ს
+// console.log(saxeli.indexOf('o'));
+// // მთავრდება თუ არა v თი
+// console.log(saxeli.endsWith('v'));
+// // ამოაქვს ინდეხსიდან ასოები ო=1 , ბოლო ო=3 და შლის მას
+// console.log(saxeli.substring(1,3));
+// // ყოფს ქვეტექსტებად
+// console.log(s.split(" "));
+
+
+
+// const upper = (words) => {
+//     const result = [];
+//     for (const st of words) {
+//         const capp = [];
+//         for (const w of st.split('_')) {
+//             const s = w[0].toUpperCase() + w.slice(1);
+//             capp.push(s);
+//         }
+//         result.push(capp.join(' ')); 
+//     }
+//     return result;
+// };
+// console.log(upper(['toko_kh','gio_kh','saba_kh']));
+
+
+
+// const upp = (words) => {
+//     // const result = [];
+//     // for (const w of words) {
+//     //     const up = [];
+//     //     for (const s of w.split('-')) { 
+//     //         const m = s[0].toUpperCase() + s.slice(1); 
+//     //         up.push(m);
+//     //     }
+//     //     result.push(up.join(' ')); 
+//     // }
+//     // return result;
+
+//     // error code
+     
+//     // return words.map((w)=>w.split(' '))
+//     // map((s)=>s[0].toUpperCase+s.slice(1))
+//     // .join(" ")
+//     return words.map((w) => 
+//         w.split('_').map((s) => s[0].toUpperCase() + s.slice(1)).join(' ')
+//     );
+
+// };
+
+// console.log(upp(['tom-cruise', 'tom hardy']));
+
+
+
+
+// const deepcopy = (obj) => {
+//     if (obj === null || typeof obj !== 'object') {
+//         return obj; 
+//     }
+
+//     // თუ ობიექტი არის მასივი
+//     if (Array.isArray(obj)) {
+//         return obj.map((item) => deepcopy(item));
+//     }
+
+//     // თუ ობიექტი არის ჩვეულებრივი ობიექტი
+//     const result = {};
+//     for (const key in obj) {
+//         if (obj.hasOwnProperty(key)) {
+//             result[key] = deepcopy(obj[key]); // რეკურსიული კოპირება
+//         }
+//     }
+//     return result;
+// };
+
+// const person2 = {
+//     name3: 'a',
+//     surname3: 'b',
+//     age: 22,
+//     address: {
+//         country: 'Usa',
+//         city: 'DC',
+//     },
+//     preaddress: ['georgia', 'france', 'italy'],
+// };
+// const persons2 = deepcopy(person2);
+// persons2.name3 = "giga"; 
+
+// console.log("Original:", person2);
+// console.log("Deep Copy:", persons2);
+
+
+// // whole html tags
+// const html= document.documentElement
+// console.log(html);
+// // body
+// const body= document.body
+// console.log(body);
+// // body
+// const head= document.head
+// console.log(head);
+
+
+// const aa = document.querySelector(".cc").firstElementChild
+// console.log(aa);
+
+// // ჯავასკრიპტში გადინამიურებული ტექსტი
+// const divi=document.createElement("div")
+// const h2i=document.createElement("h2")
+// const  texti=document.createTextNode("Tom")
+
+// const h2i2=document.createElement("h2")
+// const  texti2=document.createTextNode("sam")
+
+// h2i2.append(texti2)
+
+// divi.append(h2i,h2i2)
+// h2i.append(texti)
+
+// // ფერის შეცვლა
+// h2i.style.color="brown"
+
+// h2i2.classList.add("ex")
+// h2i2.setAttribute("id","tag")
+// document.body.append(divi)
+
+// // შემოტანილი div ის მოშორება
+// const div2 =document.createElement("div")
+// document.body.append(div2)
+// div2.remove()
+
+
+
+// const btn2 = document.querySelector("#btn")
+// // ღილაკზე დაჭერის შემთხვევაში გამოიტანს lucky day-ს
+// // btn2.onclick =function() {
+// //     console.log("lucky day");
+    
+// // }
+// // batter version than last one
+// btn2.addEventListener("click",()=>{
+//     console.log("best choice");
+    
+// })
+
+// // თუ დააჭერ ღილაკს ამოგიგდებს თეგის მონაცემებს რა კლას ან აიდს შეიცავს და ასე შემდეგ
+// const btnbox = document.querySelector("#btn-box")
+// // btnbox.addEventListener("click",(e) =>{
+// //      console.log(e.target);
+     
+// // })
+
+
+// btnbox.addEventListener("click",(e) =>{
+//     e.target.style.color="red"
+//     e.target.style.background="black"
+
+//     t.style.color="brown"
+
+// })
+
+
+// const t = document.createElement("h3")
+// const o = document.createTextNode("George")
+
+// t.append(o)
+
+// document.body.append(t)
+
+
+// // const longtext = document.getElementById('text');
+// // const button = document.getElementById('btn');
+
+// // button.addEventListener("click", () => {
+// //     longtext.style.display = 'none';
+// // });
+
+// // // second
+// // const div = document.createElement('div');
+// // div.setAttribute('id', 'div1');
+
+// // const h2 = document.createElement('h2');
+// // h2.textContent = 'Gandalf'; 
+
+// // const href = document.createElement('a');
+// // href.setAttribute('href', '#');
+// // href.textContent = 'Go to profile'; 
+
+// // div.appendChild(h2);
+// // div.appendChild(href);
+
+// // document.body.appendChild(div);
+// // // third
+// // // let score = 0;
+
+
+// const class1 = document.querySelector(".ss")
+// const sss=class1.querySelectorAll("p")
+// sss.forEach(el => el.style.color="red")
+// // console.log(sss);
+
+
+// const ul = document.querySelector("ul")
+
+// const links =ul.querySelectorAll("a")
+
+// // გააყავისფრებს მხოლოდ ლუწებს 
+// // for(let i=0;i<links.length;i+=2){
+// //     links[i].style.color="brown"
+// // }
+
+
+// // for (let link of links){
+// //     const href =link.getAttribute("href")
+// //     if(!href)continue
+// //     if(href.startsWith("/"))continue
+// //         if(href.includes("://"))break
+// // link.style.color="red"
+// // }
+
+// const isValid = (el) => el.hasAttribute("href")
+// const isOurs = (el) => !el.getAttribute("href").startsWith("/")
+// const Protected = (el) => !el.getAttribute("href").includes("://")
+// const setColor = (el) => el.style.color="red"
+
+// const diflinks =Array.from(links)
+// diflinks
+// .filter(isValid)
+// .filter(isOurs)
+// .filter(Protected)
+// .forEach(setColor)
+
+
+// // გამოიტანს კოდს 4 წამის შემდეგ
+// setTimeout(()=>{
+// console.log("toko");
+// },4000)
+
+// dance = (move,callback)=>{
+//     console.log(move);
+//     callback()
+    
+// }
+// dance("long dance",()=>{
+// console.log("wow");
+
+// });
+
+// // promises kodis daweris shemdeg vizaebt then() da catch() rata ar daiqrashos da gamoitanos kodi
+// const res= new Promise((resolve,reject)=>{
+//     if(Math.random()>0.4){
+//         resolve("right")
+//     }else{
+//         reject("wrong")
+//     }
+// })
+
+// res
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err))
+// .finally(()=>console.log("this was taught"))
+
+
+
+
+
+// // promises უკეთესი ვერსია 
+// // async function sums(){
+// //     return 1+2
+// // }
+
+
+// // async function results(){
+// //     const ress = await sums()
+// //     return ress
+// // }
+
+// // console.log(results());
+
+
+// async function toys(){
+  
+//         if(Math.random()>0.4){
+//             return "undefected"
+//         }else{
+//            return "Defected"
+//         }
+    
+// }
+
+
+// async function selltoys (status){
+//     if(status==="undefected"){
+      
+//             if(Math.random()>0.5){
+//               return "Toy has been sold"
+//             }else{
+//                 return "unsuccesful"
+//             }
+        
+//     }
+// }
+
+
+// async function promisefully(){
+//     try {
+//         const status=await toys()
+//         const result=await selltoys(status)
+//         console.log(result);
+        
+//     } catch (error) {
+//         console.log(result); 
+//     }
+// }
+// toys()
+// .then((status)=>selltoys(status))
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err))
+
+
+// const rep = (str, x, cb)=>{
+//     result=str
+// for(let i=0;i<x;i++){
+//     result=cb(result)
+// }
+// return result
+// }
+// const j=rep("toko",4,(str)=>`!${str}!`)
+// console.log(j);
+
+
+// function repeat(str,x,cb){
+//     if(x==0) return str
+//     return repeat(cb(str),x-1,cb)
+
+// }
+// const h= repeat("sam",2,(str)=>`#${str}#`)
+// console.log(h);
+
+ 
+// function guess(num){
+// return new Promise((resolve,reject)=>{
+// if(typeof num!=='number') rej("error")
+// if(num%2==1) setTimeout(()=>resolve("odd"),1000) 
+// if(num%2==0) setTimeout(()=>reject("even"),2000)
+// })
+// }
+
+// guess(4)
+// .then((res)=>console.log(res))
+// .catch((rej)=>console.log(rej))
+
+
+// function repeat(str,x,cb){
+//     if(x==0) return str
+//     return repeat(cb(str),x-1,cb)
+
+// }
+// const h= repeat("sam",2,(str)=>`#${str}#`)
+// console.log(h);
+
+
+const expo = (number,power,cb) =>{
+if(power==0)return 1
+return cb(number,expo(number,power-1,cb))
+}
+const ex=expo(3,4,(a,b)=>a*b)
+console.log(ex);
+
+// fetch('https://jsonplaceholder.typicode.com/posts')
+// .then(res =>res.json())
+// .then(res=>console.log(res))
+// .catch(res=>console.log(err))
+
+function usercard(title, body) {
+    const postDiv = document.createElement("div"); 
+    postDiv.style.border = "1px solid #ddd";
+    postDiv.style.margin = "20px";
+    postDiv.style.padding = "15px";
+    postDiv.style.borderRadius = "8px";
+    postDiv.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
+    postDiv.style.backgroundColor = "#fff";
+
+    const h1 = document.createElement("h1");
+    h1.innerHTML = title; 
+
+    const p = document.createElement("p");
+    p.innerHTML = body; 
+    postDiv.append(h1, p);
+    return postDiv; 
 }
 
-
-const timeToMake = 3000; 
-const timeToDeliver = 2000; 
-
-toyShopWorkflow(timeToMake, timeToDeliver);
+async function fetchdata(){
+    try {
+        const rawdata = await fetch('https://jsonplaceholder.typicode.com/posts')
+        if (!rawdata.ok) {
+            throw Error("Not a good request")
+        } 
+        const data = await rawdata.json(); 
+        data.forEach((post) => {
+            const postElement = usercard(post.title, post.body); 
+            document.body.append(postElement); 
+        });
+        
+        
+        
+    } catch (error) {
+        console.log(error.message);
+        
+        
+    }
+}
+fetchdata()
